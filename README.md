@@ -1,11 +1,11 @@
 # Demo React JS Project for Jenkins Plugin
 
-Start Unit Test
+Start Unit Test 
 ```
-npm test
+npm test 
 ```
 
-Run App
+Run App 
 ``` 
-npm start 
+npm start  
 ```
