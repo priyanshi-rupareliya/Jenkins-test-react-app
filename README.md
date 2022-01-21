@@ -4,3 +4,8 @@ Start Unit Test
 ```
 npm test
 ```
+
+Run App
+``` 
+npm start 
+```
