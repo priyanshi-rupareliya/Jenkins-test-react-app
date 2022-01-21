@@ -1,4 +1,4 @@
-# Demo React JS Project for Jenkins
+# Demo React JS Project for Jenkins Plugin
 
 Start Unit Test
 ```
