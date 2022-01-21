@@ -1,2 +1,2 @@
-# Simple React JS Project
+# Demo React JS Project
 
