@@ -72,7 +72,7 @@ export default class Customers extends Component {
 
           this.state.customerList.map(customer => <Panel bsStyle="info" key={customer.name} className="centeralign">
             <Panel.Heading>
-              <Panel.Title componentClass="h3">{customer.name}</Panel.Title>
+              <Panel.Title data-testid="SELECTED_CUSTOMER_TITLE" componentClass="h3">{customer.name}</Panel.Title>
             </Panel.Heading>
             <Panel.Body>
               <p>{customer.email}</p>
