@@ -18,6 +18,7 @@
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "start-server-and-test": "^1.14.0",
     "wdio-chromedriver-service": "^7.2.6"
   },
   "scripts": {
@@ -27,7 +28,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "e2e": "cd src/e2e && wdio run wdio.conf.js"
+    "e2e": "cd src/e2e && wdio run wdio.conf.js",
+    "e2e:ci":"start-server-and-test start http://localhost:3000 'cd src/e2e && wdio run wdio.conf.js'"
   },
   "devDependencies": {
     "gh-pages": "^1.2.0"
