@@ -1,6 +1,5 @@
 # Demo React JS Project for Jenkins Plugin 🚀
-## This is Demo React JS Project for Jenkins Plugin  🚲
-
+## This is Demo React JS Project for Jenkins Plugin 
 Run App 
 ``` 
 npm start  
