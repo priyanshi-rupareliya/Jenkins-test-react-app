@@ -15,4 +15,5 @@ Start Automation Test
 npm run e2e
 ``` 
 
+upadate
 
