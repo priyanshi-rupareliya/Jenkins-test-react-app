@@ -242,7 +242,7 @@ exports.config = {
      afterTest: async function (test, _context, { error }) {
         // take a screenshot anytime a test fails and throws an error
         if (error) {
-            const tmpDir = `./logs/tmpDir/${suiteName}/${test.title}`;
+            const tmpDir = `../../logs/tmpDir/${suiteName}/${test.title}`;
             if (!fs.existsSync(tmpDir)) { 
                 fs.mkdirSync(tmpDir, { recursive: true });
             }
