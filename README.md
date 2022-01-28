@@ -5,7 +5,6 @@
 
 ![React Shopping Cart Preview](https://res.cloudinary.com/sivadass/image/upload/v1494752103/gifs/react-shopping-cart.gif)
 
-
 ## Setup
 
 Goto the project folder and install required dependencies:
