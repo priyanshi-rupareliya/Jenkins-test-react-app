@@ -16,7 +16,7 @@
     "@wdio/spec-reporter": "^7.16.13",
     "@wdio/types": "^7.8.0",
     "axios": "^0.21.1",
-    "chromedriver": "^97.0.0",
+    "chromedriver": "^96.0.0",
     "classnames": "^2.2.6",
     "formik": "^2.2.6",
     "jest-html-reporter": "^3.4.2",
