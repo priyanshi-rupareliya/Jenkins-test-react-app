@@ -1,9 +1,46 @@
-import * as fs from 'fs';
-import {ReportAggregator} from 'wdio-html-nice-reporter';
+const fs = require('fs');
+const {ReportAggregator} = require('wdio-html-nice-reporter');
 
 let suiteName = '';
 let failureTestCount = 1;
 let reportAggregator;
+const LOG = require('log4js');
+LOG.configure({
+    appenders: {
+        fileLog: {
+            type: 'file',
+            filename: "logs/html-reporter.log",
+            maxLogSize: 5000000,
+            level: 'debug'
+        },
+        debugLog: {
+            type: 'file',
+            filename: "logs/debug-html-reporter.log",
+            maxLogSize: 5000000,
+            level: 'debug'
+        },
+        'out': {
+            type: 'stdout',
+            layout: {
+                type: "colored"
+            }
+        },
+        'filterOut': {
+            type: 'stdout',
+            layout: {
+                type: "colored"
+            },
+            level: 'info'
+        }
+    },
+    categories: {
+        file: {appenders: ['fileLog'], level: 'info'},
+        default: {appenders: ['out', 'fileLog'], level: 'info'},
+        console: {appenders: ['out'], level: 'info'},
+        debug: {appenders: ['debugLog'], level: 'debug'}
+    }
+});
+let logger = LOG.getLogger("default");
 exports.config = {
     //
     // ====================
@@ -27,7 +64,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './e2e/test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -67,7 +104,7 @@ exports.config = {
         'goog:chromeOptions': {
             // to run chrome headless the following flags are required
             // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-            args: ['--headless'],
+            args: ['--headless', '--disable-gpu'],
         },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -81,7 +118,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -143,7 +180,21 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec',  ["html-nice", {
+        outputDir: './reports/html-reports/',
+        filename: 'report.html',
+        reportTitle: 'Test Report Title',
+        linkScreenshots: true,
+        //to show the report in a browser when done
+        showInBrowser: true,
+        collapseTests: false,
+        //to turn on screenshots after every test
+        useOnAfterCommandForScreenshot: false,
+
+        //to initialize the logger
+        LOG:logger
+    }
+    ]],
 
 
     
@@ -264,6 +315,7 @@ exports.config = {
             await browser.saveScreenshot(`${tmpDir}/screenshot_${failureTestCount++}.png`);
         }
     },
+    sync:true,
 
     /**
      * Hook that gets executed after the suite has ended
@@ -321,8 +373,9 @@ exports.config = {
             outputDir: './reports/html-reports/',
             filename: 'master-report.html',
             reportTitle: 'Master Report',
-            browserName : capabilities.browserName,
-            collapseTests: true
+            browserName : "Chrome",
+            collapseTests: true,
+            LOG: logger
           });
         reportAggregator.clean() ;
     },
