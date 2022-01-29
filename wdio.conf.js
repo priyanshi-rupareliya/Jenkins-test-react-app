@@ -1,5 +1,6 @@
 const fs = require('fs');
 const {ReportAggregator} = require('wdio-html-nice-reporter');
+const { execSync } = require("child_process");
 
 let suiteName = '';
 let failureTestCount = 1;
@@ -383,6 +384,7 @@ exports.config = {
     onComplete: function(exitCode, config, capabilities, results) {
         (async () => {
             await reportAggregator.createReport();
+            execSync('npm run report');
         })();
     },
 }
