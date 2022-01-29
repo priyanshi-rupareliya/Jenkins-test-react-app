@@ -32,7 +32,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --reporters='jest-html-reporter'",
     "eject": "react-scripts eject",
