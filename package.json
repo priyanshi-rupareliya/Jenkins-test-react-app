@@ -39,7 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --reporters='jest-html-reporter'",
     "eject": "react-scripts eject",
-    "e2e": "start-server-and-test start http://localhost:3000 'cd src/e2e && wdio run wdio.conf.js'"
+    "e2e": "start-server-and-test start http://localhost:3000 'cd src/e2e && wdio run wdio.conf.js && node make-pdf.js'"
   },
   "eslintConfig": {
     "extends": [
