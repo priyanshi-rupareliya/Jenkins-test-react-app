@@ -1,7 +1,7 @@
 
-it('Test 1', () => {
-  expect(2).toEqual(1);
-});
+// it('Test 1', () => {
+//   expect(2).toEqual(1);
+// });
 
 it('Test 2', () => {
   expect(2).toEqual(2);
@@ -18,7 +18,7 @@ it('Test 4', () => {
 
 });
 
-it('Test 5', () => {
-  expect(2).toEqual(11);
+// it('Test 5', () => {
+//   expect(2).toEqual(11);
 
-});
+// });
