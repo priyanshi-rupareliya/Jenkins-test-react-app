@@ -18,6 +18,7 @@
     "formik": "^2.2.6",
     "jest-html-reporter": "^3.4.2",
     "jest-junit": "^13.0.0",
+    "jest-stare": "^2.3.0",
     "lodash.get": "^4.4.2",
     "log4js": "^6.4.1",
     "node-sass": "^5.0.0",
@@ -29,12 +30,13 @@
     "start-server-and-test": "^1.14.0",
     "styled-components": "^5.2.1",
     "wdio-html-nice-reporter": "^7.9.1",
+    "wdio-timeline-reporter": "^5.1.4",
     "yup": "^0.32.9"
   },
   "scripts": {
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --reporters='jest-html-reporter'",
+    "test": "react-scripts test  --watchAll=false --reporters='jest-stare' --testResultsProcessor='jest-stare'",
     "eject": "react-scripts eject",
     "e2e": "start-server-and-test start http://localhost:3000 'wdio run wdio.conf.js'",
     "report": "node ./e2e/make-pdf.js"
