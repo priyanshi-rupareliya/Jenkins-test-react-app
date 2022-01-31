@@ -390,7 +390,7 @@ exports.config = {
   onPrepare: function (config, capabilities) {
     reportAggregator = new ReportAggregator({
       outputDir: "./reports/html-reports/",
-      filename: "master-report.html",
+      filename: "E2E-report.html",
       reportTitle: "Master Report",
       browserName: "Chrome",
       collapseTests: true,
